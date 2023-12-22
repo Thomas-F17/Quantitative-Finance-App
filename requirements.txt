@@ -45,5 +45,5 @@ urllib3==2.0.6
 validators==0.22.0
 watchdog==3.0.0
 zipp==3.17.0
-scipy==1.26.0
-py_vollib==1.16.0
+scipy==1.11.3
+py_vollib==1.0.1
