@@ -6,6 +6,7 @@ certifi==2023.7.22
 charset-normalizer==3.3.0
 click==8.1.7
 colorama==0.4.6
+DateTime==5.4
 gitdb==4.0.10
 GitPython==3.1.37
 idna==3.4
@@ -27,6 +28,7 @@ pydeck==0.8.1b0
 Pygments==2.16.1
 python-dateutil==2.8.2
 pytz==2023.3.post1
+py_vollib==1.16.0
 referencing==0.30.2
 requests==2.31.0
 rich==13.6.0
@@ -46,4 +48,4 @@ validators==0.22.0
 watchdog==3.0.0
 zipp==3.17.0
 scipy==1.26.0
-py_vollib==1.16.0
+yfinance==0.2.31
