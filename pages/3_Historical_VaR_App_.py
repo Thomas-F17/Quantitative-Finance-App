@@ -29,7 +29,7 @@ if ticker and start and end and confidence:
 
         results = pd.DataFrame({
             "Metric": ["Historical VaR", "Historical CVaR", "Stock Volatility (Day)", "Stock Volatility (Year)"],
-            "Value (%)": [format_string.format(histVar*100), format_string.format(histCVar*100), format_string.format(StockVolatilityDay*100), format_string.format(StockVolatilityYear*100)]
+            "Value (%)": [format_string.format(histVar*-100), format_string.format(histCVar*-100), format_string.format(StockVolatilityDay*100), format_string.format(StockVolatilityYear*100)]
         })
         results = results.set_index('Metric')
         st.table(results)
