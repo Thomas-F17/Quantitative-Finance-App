@@ -3,7 +3,7 @@ import pandas as pd
 import yfinance as yf
 
 def HistVar_CVaR(Ticker, Start, End, confidence):
-    """Get data from yahoo finance and calculate VaR and CVaR using yfinance"""
+    """Get data from yahoo finance and calculate historical VaR and CVaR"""
 
     # Ensure Start and End are in datetime format
     Start = pd.to_datetime(Start)
