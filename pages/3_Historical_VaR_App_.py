@@ -48,3 +48,4 @@ decimal_places = st.slider('Number of Decimal Places', min_value=0, max_value=10
 if decimal_places != st.session_state.decimal_places:
     st.session_state.decimal_places = decimal_places
     st.experimental_rerun()
+    

@@ -4,6 +4,6 @@ import streamlit as st
 st.set_page_config(page_title="Options Pricer", layout="wide")
 st.title("Home Page")
 st.sidebar.success("Select a page above.")
-st.write("This app performs option pricing with different methods.")
+st.write("This app performs different quantitative finance calculations.")
 
 
