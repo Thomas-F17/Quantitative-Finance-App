@@ -8,8 +8,8 @@ st.title('Parametric VaR and CVaR Calculator for Normal and T -Distributions')
 if 'decimal_places' not in st.session_state:
     st.session_state.decimal_places = 2
 
-# Set default ticker to 'AAPL'
-default_ticker = 'AAPL'
+# Set default ticker to 'GOOG'
+default_ticker = 'GOOG'
 ticker = st.text_input('Ticker', value=default_ticker)
 
 # Set default dates
@@ -22,8 +22,8 @@ end = st.date_input('End Date', value=default_end_date, format="DD/MM/YYYY")
 # Choose Return Calc Type
 returns = st.radio(
     "Return Calculation Type:",
-    ["simple", "continously compounded"],
-    index=None,
+    ["simple", "continuously compounded"],
+    index=0,
 )
 
 # Set confidence level

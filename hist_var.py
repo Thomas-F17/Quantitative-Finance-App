@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-def HistVar_CVaR(Ticker, Start, End, confidence, returns="simple"):
+def HistVar_CVaR(Ticker, Start, End, confidence, returns):
     """
     Gets stock price data from Yahoo Finance and calculates the historical Value at Risk (VaR) and Conditional Value at Risk (CVaR).
 

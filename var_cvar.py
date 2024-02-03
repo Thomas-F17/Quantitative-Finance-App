@@ -3,7 +3,7 @@ import pandas as pd
 import yfinance as yf
 from scipy.stats import norm, t
 
-def Param_Var_CVaR(Ticker, Start, End, confidence, returns="simple"):
+def Param_Var_CVaR(Ticker, Start, End, confidence, returns):
     """
     Calculates Parametric Value at Risk (VaR) and Conditional Value at Risk (CVaR) for a given stock.
 
