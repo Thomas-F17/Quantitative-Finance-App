@@ -19,12 +19,19 @@ default_end_date = datetime.now()
 start = st.date_input('Start Date', value=default_start_date, format="DD/MM/YYYY")
 end = st.date_input('End Date', value=default_end_date, format="DD/MM/YYYY")
 
+# Choose Return Calc Type
+returns = st.radio(
+    "Return Calculation Type:",
+    ["simple", "continously compounded"],
+    index=None,
+)
+
 # Set confidence level
 confidence = st.slider('Confidence Level (1-X)%', min_value=1, max_value=99, value=95, step=1)
 
-if ticker and start and end and confidence:
+if ticker and start and end and confidence and returns:
     try:
-        VaR_norm, VaR_t, CVaR_norm, CVaR_t, StockVolatilityDay, StockVolatilityYear, nu = Param_Var_CVaR(ticker, start, end, confidence)
+        VaR_norm, VaR_t, CVaR_norm, CVaR_t, StockVolatilityDay, StockVolatilityYear, nu = Param_Var_CVaR(ticker, start, end, confidence, returns)
         format_string = f"{{:.{st.session_state.decimal_places}f}}%"
 
         results = pd.DataFrame({

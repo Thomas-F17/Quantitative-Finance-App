@@ -19,12 +19,19 @@ default_end_date = datetime.now()
 start = st.date_input('Start Date', value=default_start_date, format="DD/MM/YYYY")
 end = st.date_input('End Date', value=default_end_date, format="DD/MM/YYYY")
 
+# Choose Return Calc Type
+returns = st.radio(
+    "Return Calculation Type:",
+    ["simple", "continously compounded"],
+    index=None,
+)
+
 # Set confidence level
 confidence = st.slider('Confidence Level (1-X)', min_value=0.01, max_value=0.99, value=0.95, step=0.01)
 
-if ticker and start and end and confidence:
+if ticker and start and end and confidence and returns:
     try:
-        histVar, histCVar, StockVolatilityDay, StockVolatilityYear = HistVar_CVaR(ticker, start, end, confidence)
+        histVar, histCVar, StockVolatilityDay, StockVolatilityYear = HistVar_CVaR(ticker, start, end, confidence, returns)
         format_string = f"{{:.{st.session_state.decimal_places}f}}%"
 
         results = pd.DataFrame({
@@ -34,10 +41,6 @@ if ticker and start and end and confidence:
         results = results.set_index('Metric')
         st.table(results)
 
-#        st.write(f"Historical VaR: {format_string.format(histVar*100)}")
-#        st.write(f"Historical CVaR: {format_string.format(histCVar*100)}")
-#        st.write(f"Stock Volatility (Day): {format_string.format(StockVolatilityDay*100)}")
-#        st.write(f"Stock Volatility (Year): {format_string.format(StockVolatilityYear*100)}")
     except Exception as e:
         st.error(f"An error occurred: {e}")
 

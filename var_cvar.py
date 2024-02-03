@@ -3,7 +3,7 @@ import pandas as pd
 import yfinance as yf
 from scipy.stats import norm, t
 
-def Param_Var_CVaR(Ticker, Start, End, confidence):
+def Param_Var_CVaR(Ticker, Start, End, confidence, returns="simple"):
     """
     Calculates Parametric Value at Risk (VaR) and Conditional Value at Risk (CVaR) for a given stock.
 
@@ -49,15 +49,23 @@ def Param_Var_CVaR(Ticker, Start, End, confidence):
     confidence_decimal = confidence / 100
 
     # Ensure Start and End are in datetime format
-    Start = pd.to_datetime(Start)
-    End = pd.to_datetime(End)
+    if returns == "simple":
+        Start = pd.to_datetime(Start)
+        End = pd.to_datetime(End)
+    elif returns == "continuously compounded":
+        Start = pd.to_datetime(Start) - pd.Timedelta(days=1)
+        End = pd.to_datetime(End)
 
     # Fetch data from Yahoo Finance using yfinance
     Data = yf.download(Ticker, start=Start, end=End)
     Data = Data['Adj Close']
 
     # Calculate daily returns
-    StockReturns = Data.pct_change().dropna()
+    if returns == "simple":
+        StockReturns = Data.pct_change().dropna()
+    elif returns == "continuously compounded":
+        StockReturns = np.log(Data / Data.shift(1)).dropna()
+
     StockStd = StockReturns.std()
     mu = StockReturns.mean()
 
