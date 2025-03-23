@@ -90,4 +90,4 @@ def Param_Var_CVaR(Ticker, Start, End, confidence, returns):
     StockVolatilityDay = StockStd
     StockVolatilityYear = StockStd * np.sqrt(252)
 
-    return VaR_norm, VaR_t, CVaR_norm, CVaR_t, StockVolatilityDay, StockVolatilityYear, nu
+    return float(VaR_norm), float(VaR_t), float(CVaR_norm), float(CVaR_t), float(StockVolatilityDay), float(StockVolatilityYear), float(nu)
