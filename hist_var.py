@@ -69,4 +69,4 @@ def HistVar_CVaR(Ticker, Start, End, confidence, returns):
 
     StockVolatilityYear = StockReturns.std() * np.sqrt(252)
 
-    return histVar, histCVar, StockVolatilityDay, StockVolatilityYear
+    return float(histVar), float(histCVar), float(StockVolatilityDay), float(StockVolatilityYear)
