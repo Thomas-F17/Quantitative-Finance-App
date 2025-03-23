@@ -57,8 +57,7 @@ def Param_Var_CVaR(Ticker, Start, End, confidence, returns):
         End = pd.to_datetime(End)
 
     # Fetch data from Yahoo Finance using yfinance
-    Data = yf.download(Ticker, start=Start, end=End)
-    Data = Data['Adj Close']
+    Data = yf.download(Ticker, start=Start, end=End, auto_adjust=True)['Close']
 
     # Calculate daily returns
     if returns == "simple":
