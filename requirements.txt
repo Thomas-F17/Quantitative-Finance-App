@@ -48,4 +48,4 @@ validators==0.22.0
 watchdog==3.0.0
 zipp==3.17.0
 scipy==1.12.0
-yfinance==0.2.55
+yfinance==0.2.62
